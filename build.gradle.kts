@@ -9,9 +9,9 @@ plugins {
 version = "0.1"
 group = "example.micronaut"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
 repositories {
     mavenCentral()
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 micronaut {
@@ -23,6 +23,8 @@ micronaut {
     }
 }
 
+val kotlinVersion = project.properties.get("kotlinVersion")
+
 dependencies {
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
@@ -30,10 +32,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     implementation("io.micronaut:micronaut-validation")
+
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 }
-
 
 application {
     mainClass.set("example.micronaut.ApplicationKt")
