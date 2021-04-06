@@ -55,6 +55,7 @@ tasks {
             jvmTarget = "1.8"
         }
     }
-
-
+    nativeImage {
+        setImageName("kotlin")
+    }
 }
