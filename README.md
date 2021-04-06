@@ -1,12 +1,3 @@
-## Micronaut 2.4.2 Documentation
+# Micronaut basic app Kotlin
 
-- [User Guide](https://docs.micronaut.io/2.4.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/2.4.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/2.4.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
-
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
+:warning: **The master branch is not used**. Checkout branches for each specific Micronaut version: `2.4.x`, `2.5.x`,...
