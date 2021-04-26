@@ -17,4 +17,7 @@ class HelloController(private val greetingService: GreetingService) {
     fun version(): String {
         return VersionUtils.MICRONAUT_VERSION
     }
+
+    @Get("/color/{color}")
+    fun test(color: Color) = color
 }
