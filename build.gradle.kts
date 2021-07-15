@@ -25,6 +25,19 @@ micronaut {
 
 val kotlinVersion = project.properties.get("kotlinVersion")
 
+// TODO: Remove this when micronaut-reactor 2.0.0 is in core's BOM
+configurations {
+    all {
+        resolutionStrategy {
+            eachDependency {
+                if (requested.group == "io.micronaut.reactor") {
+                    useVersion("2.0.0-SNAPSHOT")
+                }
+            }
+        }
+    }
+}
+
 dependencies {
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
@@ -32,6 +45,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut.reactor:micronaut-reactor")
 
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")

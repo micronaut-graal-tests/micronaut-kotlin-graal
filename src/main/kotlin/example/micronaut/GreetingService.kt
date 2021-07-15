@@ -1,12 +1,12 @@
 package example.micronaut
 
-import io.reactivex.Single
 import jakarta.inject.Singleton
+import reactor.core.publisher.Mono
 
 @Singleton
 class GreetingService {
 
-    fun sayHi(name: String): Single<Greeting> {
-        return Single.just(Greeting("Hello $name"))
+    fun sayHi(name: String): Mono<Greeting> {
+        return Mono.just(Greeting("Hello $name"))
     }
 }

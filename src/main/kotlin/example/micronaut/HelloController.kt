@@ -3,13 +3,13 @@ package example.micronaut
 import io.micronaut.core.version.VersionUtils
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
-import io.reactivex.Single
+import reactor.core.publisher.Mono
 
 @Controller("/")
 class HelloController(private val greetingService: GreetingService) {
 
     @Get("/hello/{name}")
-    fun sayHi(name: String): Single<Greeting> {
+    fun sayHi(name: String): Mono<Greeting> {
         return greetingService.sayHi(name)
     }
 
