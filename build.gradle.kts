@@ -1,7 +1,7 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.5.30"
-    id("org.jetbrains.kotlin.kapt") version "1.5.30"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.5.30"
+    id("org.jetbrains.kotlin.jvm") version "1.6.0"
+    id("org.jetbrains.kotlin.kapt") version "1.6.0"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.6.0"
     id("com.github.johnrengelman.shadow") version "7.1.0"
     id("io.micronaut.application") version "2.0.8"
 }
@@ -58,24 +58,5 @@ tasks {
     }
     nativeImage {
         setImageName("kotlin")
-    }
-}
-
-if (JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_16)) {
-    // Workaround for https://youtrack.jetbrains.com/issue/KT-45545
-    kotlin {
-        kotlinDaemonJvmArgs = listOf(
-            "-Dfile.encoding=UTF-8",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
-            "--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"
-        )
     }
 }
