@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt") version "1.6.0"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.6.0"
     id("com.github.johnrengelman.shadow") version "7.1.0"
-    id("io.micronaut.application") version "2.0.8"
+    id("io.micronaut.application") version "3.0.0"
 }
 
 version = "0.1"
@@ -56,7 +56,11 @@ tasks {
             jvmTarget = "1.8"
         }
     }
-    nativeImage {
-        setImageName("kotlin")
+    graalvmNative {
+        binaries {
+            named("main") {
+                imageName.set("kotlin")
+            }
+        }
     }
 }
