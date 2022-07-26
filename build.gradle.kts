@@ -64,3 +64,6 @@ tasks {
         }
     }
 }
+
+graalvmNative.toolchainDetection.set(false)
+
